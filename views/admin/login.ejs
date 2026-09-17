@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Admin — Sign in</title>
+  <meta name="robots" content="noindex">
+  <%- include('../partials/head') %>
+</head>
+<body class="admin-body">
+  <main class="admin-login">
+    <form method="POST" action="/admin/login" class="admin-card">
+      <p class="eyebrow">POST /admin/login</p>
+      <h1>Admin sign in</h1>
+      <% if (error) { %><p class="cf-status error"><%= error %></p><% } %>
+      <div class="contact__field">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="username" required />
+      </div>
+      <div class="contact__field">
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required />
+      </div>
+      <button type="submit" class="btn btn--primary">Sign in</button>
+      <a href="/" class="admin-back">← Back to site</a>
+    </form>
+  </main>
+</body>
+</html>

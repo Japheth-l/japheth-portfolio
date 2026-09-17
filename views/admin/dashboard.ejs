@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Admin — Dashboard</title>
+  <meta name="robots" content="noindex">
+  <%- include('../partials/head') %>
+</head>
+<body class="admin-body">
+<header class="admin-nav">
+  <div class="admin-nav__brand">JL<span class="dim">.</span> <span class="admin-nav__label">admin</span></div>
+  <div class="admin-nav__actions">
+    <a href="/" target="_blank" rel="noopener">View site ↗</a>
+    <span class="dim"><%= admin.email %></span>
+    <form method="POST" action="/admin/logout"><button type="submit" class="btn btn--ghost btn--sm">Sign out</button></form>
+  </div>
+</header>
+
+<main class="admin-main">
+
+  <section class="admin-section">
+    <h2>Analytics</h2>
+    <div class="stat-grid">
+      <div class="stat"><span class="stat__value"><%= stats.totalViews %></span><span class="stat__label">Page views (all time)</span></div>
+      <div class="stat"><span class="stat__value"><%= stats.viewsLast30 %></span><span class="stat__label">Page views (30 days)</span></div>
+      <div class="stat"><span class="stat__value"><%= messages.length %></span><span class="stat__label">Recent messages</span></div>
+      <div class="stat"><span class="stat__value"><%= projects.length %></span><span class="stat__label">Projects live</span></div>
+    </div>
+
+    <% if (stats.topClicks.length) { %>
+      <h3 class="admin-subhead">Top outbound clicks</h3>
+      <table class="admin-table">
+        <thead><tr><th>Event</th><th>Label</th><th>Count</th></tr></thead>
+        <tbody>
+          <% stats.topClicks.forEach(c => { %>
+            <tr><td><code><%= c._id.type %></code></td><td><%= c._id.label || '—' %></td><td><%= c.count %></td></tr>
+          <% }) %>
+        </tbody>
+      </table>
+    <% } %>
+  </section>
+
+  <section class="admin-section">
+    <div class="admin-section__head">
+      <h2>Projects</h2>
+      <div class="admin-section__actions">
+        <a href="/admin/content" class="btn btn--ghost btn--sm">Edit site copy</a>
+        <a href="/admin/projects/new" class="btn btn--primary btn--sm">New project</a>
+      </div>
+    </div>
+    <table class="admin-table">
+      <thead><tr><th>#</th><th>Method</th><th>Title</th><th>Route</th><th></th></tr></thead>
+      <tbody>
+        <% projects.forEach(p => { %>
+          <tr>
+            <td><%= p.order %></td>
+            <td><span class="method method--<%= p.method.toLowerCase() %>"><%= p.method %></span></td>
+            <td><%= p.title %></td>
+            <td><code><%= p.route %></code></td>
+            <td class="admin-table__actions">
+              <a href="/admin/projects/<%= p._id %>/edit">Edit</a>
+              <form method="POST" action="/admin/projects/<%= p._id %>/delete" onsubmit="return confirm('Delete &quot;<%= p.title %>&quot;?')">
+                <button type="submit" class="link-danger">Delete</button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="admin-section">
+    <h2>Messages</h2>
+    <% if (!messages.length) { %>
+      <p class="dim">No messages yet.</p>
+    <% } else { %>
+      <div class="message-list">
+        <% messages.forEach(m => { %>
+          <article class="message">
+            <div class="message__head">
+              <strong><%= m.name %></strong>
+              <a href="mailto:<%= m.email %>"><%= m.email %></a>
+              <span class="dim"><%= new Date(m.createdAt).toLocaleString() %></span>
+              <span class="badge <%= m.emailSent ? 'badge--ok' : 'badge--warn' %>"><%= m.emailSent ? 'emailed' : 'stored only' %></span>
+            </div>
+            <p class="message__body"><%= m.message %></p>
+            <form method="POST" action="/admin/messages/<%= m._id %>/delete" onsubmit="return confirm('Delete this message?')">
+              <button type="submit" class="link-danger">Delete</button>
+            </form>
+          </article>
+        <% }) %>
+      </div>
+    <% } %>
+  </section>
+
+</main>
+</body>
+</html>

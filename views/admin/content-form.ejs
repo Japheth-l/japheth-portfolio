@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Admin — Site copy</title>
+  <meta name="robots" content="noindex">
+  <%- include('../partials/head') %>
+</head>
+<body class="admin-body">
+<header class="admin-nav">
+  <div class="admin-nav__brand">JL<span class="dim">.</span> <span class="admin-nav__label">admin</span></div>
+  <div class="admin-nav__actions"><a href="/admin">← Dashboard</a></div>
+</header>
+
+<main class="admin-main admin-main--narrow">
+  <form method="POST" action="/admin/content" class="admin-card">
+    <h1>Site copy</h1>
+
+    <div class="contact__field">
+      <label for="heroHello">Hero greeting</label>
+      <input id="heroHello" name="heroHello" value="<%= content.heroHello %>" />
+    </div>
+    <div class="contact__field">
+      <label for="heroName">Name</label>
+      <input id="heroName" name="heroName" value="<%= content.heroName %>" />
+    </div>
+    <div class="contact__field">
+      <label for="heroRole">Role</label>
+      <input id="heroRole" name="heroRole" value="<%= content.heroRole %>" />
+    </div>
+    <div class="contact__field">
+      <label for="heroLede">Hero lede</label>
+      <textarea id="heroLede" name="heroLede" rows="3"><%= content.heroLede %></textarea>
+    </div>
+    <div class="contact__field">
+      <label for="aboutText">About (blank line between paragraphs)</label>
+      <textarea id="aboutText" name="aboutText" rows="10"><%= aboutText %></textarea>
+    </div>
+    <div class="contact__field">
+      <label for="skillsText">Skills — one <code>category: a, b, c</code> per line</label>
+      <textarea id="skillsText" name="skillsText" rows="8"><%= skillsText %></textarea>
+    </div>
+
+    <button type="submit" class="btn btn--primary">Save content</button>
+  </form>
+</main>
+</body>
+</html>

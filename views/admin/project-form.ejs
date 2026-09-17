@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Admin — <%= project ? 'Edit' : 'New' %> project</title>
+  <meta name="robots" content="noindex">
+  <%- include('../partials/head') %>
+</head>
+<body class="admin-body">
+<header class="admin-nav">
+  <div class="admin-nav__brand">JL<span class="dim">.</span> <span class="admin-nav__label">admin</span></div>
+  <div class="admin-nav__actions"><a href="/admin">← Dashboard</a></div>
+</header>
+
+<main class="admin-main admin-main--narrow">
+  <form method="POST" action="<%= action %>" class="admin-card">
+    <h1><%= project ? 'Edit project' : 'New project' %></h1>
+
+    <div class="field-row">
+      <div class="contact__field">
+        <label for="method">Method</label>
+        <select id="method" name="method">
+          <% ['GET','POST','PUT','DELETE'].forEach(m => { %>
+            <option value="<%= m %>" <%= project && project.method === m ? 'selected' : '' %>><%= m %></option>
+          <% }) %>
+        </select>
+      </div>
+      <div class="contact__field">
+        <label for="status">Status label</label>
+        <input id="status" name="status" value="<%= project ? project.status : '200 OK' %>" />
+      </div>
+      <div class="contact__field">
+        <label for="order">Order</label>
+        <input id="order" name="order" type="number" value="<%= project ? project.order : 0 %>" />
+      </div>
+    </div>
+
+    <div class="contact__field">
+      <label for="route">Route</label>
+      <input id="route" name="route" value="<%= project ? project.route : '/projects/' %>" required />
+    </div>
+
+    <div class="contact__field">
+      <label for="title">Title</label>
+      <input id="title" name="title" value="<%= project ? project.title : '' %>" required />
+    </div>
+
+    <div class="contact__field">
+      <label for="description">Description</label>
+      <textarea id="description" name="description" rows="5" required><%= project ? project.description : '' %></textarea>
+    </div>
+
+    <div class="contact__field">
+      <label for="tags">Tags (comma separated)</label>
+      <input id="tags" name="tags" value="<%= project ? project.tags.join(', ') : '' %>" />
+    </div>
+
+    <div class="field-row">
+      <div class="contact__field">
+        <label for="liveUrl">Live URL</label>
+        <input id="liveUrl" name="liveUrl" value="<%= project && project.liveUrl ? project.liveUrl : '' %>" />
+      </div>
+      <div class="contact__field">
+        <label for="sourceUrl">Source URL</label>
+        <input id="sourceUrl" name="sourceUrl" value="<%= project && project.sourceUrl ? project.sourceUrl : '' %>" />
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn--primary">Save project</button>
+  </form>
+</main>
+</body>
+</html>

@@ -1,0 +1,77 @@
+const defaultContent = {
+  key: 'main',
+  heroHello: "Hello, I'm",
+  heroName: 'Japheth Mwinekpieng Lamuo',
+  heroRole: 'Backend Developer',
+  heroLede: 'I build reliable, scalable REST APIs with Node.js, Express, and MongoDB. Based in Accra, Ghana — open to remote opportunities worldwide.',
+  aboutParagraphs: [
+    "I'm a backend developer based in Accra, Ghana, currently completing the Backend Development Track at BeTechnified Tech Academy alongside a first-year Electrical & Electronics Engineering degree at the University of Energy & Natural Resources.",
+    "I started with in-memory CRUD APIs tested by hand in Postman, and worked up to deployed services with real validation, indexing, and authentication. I like the backend specifically because nobody sees it when it's working — they only notice when it isn't. I try to build the kind that's never noticed.",
+    "Right now I'm looking for junior backend roles and freelance work, remote-friendly. If your stack is Node.js and MongoDB, we'll probably get along.",
+  ],
+  skills: {
+    runtime: ['Node.js'],
+    framework: ['Express.js'],
+    database: ['MongoDB', 'Mongoose'],
+    validation: ['Joi'],
+    auth: ['JWT', 'bcrypt'],
+    tooling: ['Git', 'Postman', 'dotenv'],
+    deploy: ['Render', 'MongoDB Atlas'],
+  },
+};
+
+const defaultProjects = [
+  {
+    method: 'GET',
+    route: '/projects/portfolio',
+    status: '200 OK',
+    title: 'This Portfolio',
+    description: 'The site you are reading. A server-rendered Express app with EJS templates, a MongoDB-backed content API, a JWT-protected admin CMS for editing projects and copy, a rate-limited contact endpoint, and first-party analytics — no third-party trackers.',
+    tags: ['Node.js', 'Express', 'EJS', 'MongoDB', 'JWT', 'Resend'],
+    liveUrl: '',
+    sourceUrl: 'https://github.com/Japheth-l',
+    order: 0,
+  },
+  {
+    method: 'GET',
+    route: '/projects/notes-api',
+    status: '200 OK',
+    title: 'Notes API',
+    description: 'A production-ready REST API for notes with Joi-validated input, offset pagination, full-text search, and compound MongoDB indexes for fast lookups at scale. Deployed and live on Render.',
+    tags: ['Node.js', 'Express', 'MongoDB', 'Mongoose', 'Joi'],
+    liveUrl: 'https://notes-api-k7fb.onrender.com',
+    sourceUrl: 'https://github.com/Japheth-l/notes-api',
+    order: 1,
+  },
+  {
+    method: 'POST',
+    route: '/projects/blog-api/auth',
+    status: '201 Created',
+    title: 'Blog API with JWT Auth',
+    description: 'A blogging backend with token-based authentication — signup, login, and protected routes guarded by JWT middleware, so only the right people can publish or edit a post.',
+    tags: ['Node.js', 'Express', 'JWT', 'bcrypt', 'MongoDB'],
+    sourceUrl: 'https://github.com/Japheth-l/blog-api-auth',
+    order: 2,
+  },
+  {
+    method: 'PUT',
+    route: '/projects/ecommerce-api/products',
+    status: '200 OK',
+    title: 'E-commerce Product Management API',
+    description: 'Team project at BeTechnified — I owned the products module: full CRUD, Mongoose schema design, Joi validation, regex-based search, and pagination on the product listing endpoints.',
+    tags: ['Node.js', 'Express', 'MongoDB', 'Joi', 'Team project'],
+    order: 3,
+  },
+  {
+    method: 'GET',
+    route: '/projects/todo-api',
+    status: '200 OK',
+    title: 'Todo API',
+    description: 'Started as an in-memory CRUD exercise, then migrated to persistent storage on MongoDB Atlas — the project that taught me the difference between "it works" and "it survives a restart."',
+    tags: ['Node.js', 'Express', 'MongoDB Atlas'],
+    sourceUrl: 'https://github.com/Japheth-l',
+    order: 4,
+  },
+];
+
+module.exports = { defaultContent, defaultProjects };
