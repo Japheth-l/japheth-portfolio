@@ -3,7 +3,15 @@ const mongoose = require('mongoose');
 let memoryServer = null;
 
 async function connectDB() {
-  let uri = process.env.MONGODB_URI;
+  // Pasting into a hosting dashboard often carries stray whitespace or wrapping quotes.
+  let uri = (process.env.MONGODB_URI || '').trim().replace(/^["']|["']$/g, '');
+
+  if (uri && !/^mongodb(\+srv)?:\/\//.test(uri)) {
+    throw new Error(
+      `MONGODB_URI must start with "mongodb+srv://" or "mongodb://", but starts with "${uri.slice(0, 12)}...". ` +
+      'Check the value for a stray prefix, quotes, or a truncated paste.',
+    );
+  }
 
   if (!uri) {
     if (process.env.NODE_ENV === 'production') {
