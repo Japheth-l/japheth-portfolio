@@ -12,7 +12,7 @@
   "author": "Japheth Mwinekpieng Lamuo",
   "license": "ISC",
   "dependencies": {
-    "bcryptjs": "^2.4.3",
+    "bcryptjs": "^3.0.3",
     "cookie-parser": "^1.4.6",
     "dotenv": "^17.4.2",
     "ejs": "^3.1.10",
