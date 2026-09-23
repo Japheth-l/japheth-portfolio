@@ -58,7 +58,7 @@
             <td><code><%= p.route %></code></td>
             <td class="admin-table__actions">
               <a href="/admin/projects/<%= p._id %>/edit">Edit</a>
-              <form method="POST" action="/admin/projects/<%= p._id %>/delete" onsubmit="return confirm('Delete &quot;<%= p.title %>&quot;?')">
+              <form method="POST" action="/admin/projects/<%= p._id %>/delete" data-confirm="Delete &quot;<%= p.title %>&quot;?">
                 <button type="submit" class="link-danger">Delete</button>
               </form>
             </td>
@@ -83,7 +83,7 @@
               <span class="badge <%= m.emailSent ? 'badge--ok' : 'badge--warn' %>"><%= m.emailSent ? 'emailed' : 'stored only' %></span>
             </div>
             <p class="message__body"><%= m.message %></p>
-            <form method="POST" action="/admin/messages/<%= m._id %>/delete" onsubmit="return confirm('Delete this message?')">
+            <form method="POST" action="/admin/messages/<%= m._id %>/delete" data-confirm="Delete this message?">
               <button type="submit" class="link-danger">Delete</button>
             </form>
           </article>
@@ -93,5 +93,6 @@
   </section>
 
 </main>
+<script src="/js/admin.js?v=<%= assetVersion %>"></script>
 </body>
 </html>

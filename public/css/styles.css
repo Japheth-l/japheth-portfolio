@@ -228,6 +228,8 @@ h2{font-size:clamp(1.75rem,3.2vw,2.35rem);font-weight:700;letter-spacing:-.02em;
 .endpoint__links{display:flex;gap:18px;flex-wrap:wrap;}
 .endpoint__links a{font-family:var(--mono);font-size:.82rem;color:var(--accent);border-bottom:1px solid transparent;transition:border-color .15s var(--ease);}
 .endpoint__links a:hover{border-bottom-color:var(--accent);}
+.endpoint--empty p{margin-bottom:0;}
+.endpoint--empty a{color:var(--accent);}
 
 /* ===== Skills ===== */
 .stack{background:var(--bg-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}

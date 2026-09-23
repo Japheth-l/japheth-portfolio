@@ -79,6 +79,16 @@
     </div>
 
     <div class="endpoint-list">
+      <% if (!projects.length) { %>
+        <article class="endpoint endpoint--empty">
+          <div class="endpoint__head">
+            <span class="method method--get">GET</span>
+            <span class="route">/projects</span>
+            <span class="status">204 No Content</span>
+          </div>
+          <p>No projects published yet — they're on the way. In the meantime, the fastest way to see my work is <a href="https://github.com/Japheth-l" target="_blank" rel="noopener">GitHub</a>.</p>
+        </article>
+      <% } %>
       <% projects.forEach(project => { %>
         <article class="endpoint">
           <div class="endpoint__head">

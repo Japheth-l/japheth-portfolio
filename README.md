@@ -23,6 +23,25 @@ MongoDB for the content, and a JWT-protected admin panel for editing it.
 - Read and delete contact messages
 - Page-view and outbound-click stats
 
+**Security**
+- `helmet` with a strict Content-Security-Policy — no `unsafe-inline`, so there
+  are no inline scripts or event handlers anywhere in the templates
+- HSTS and `secure` cookies in production; `SameSite=Lax` blocks cross-site CSRF
+- Rate limits on every public write: contact (5 / 15 min), analytics (30 / min),
+  admin login (10 / 15 min)
+- Length caps in both the request validator and the schemas
+- EJS escapes all stored content, so CMS input cannot inject markup
+
+## Tests
+
+```bash
+npm test
+```
+
+20 tests over the API, admin auth, and security headers, using an in-memory
+MongoDB. They set their own environment and never read `.env`, so they cannot
+reach the live database.
+
 ## Running locally
 
 ```bash

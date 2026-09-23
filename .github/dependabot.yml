@@ -1,0 +1,13 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    groups:
+      # One PR for routine patches keeps the noise down; majors still come separately.
+      minor-and-patch:
+        update-types:
+          - minor
+          - patch

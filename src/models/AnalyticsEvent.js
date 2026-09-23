@@ -5,4 +5,7 @@ const analyticsEventSchema = new mongoose.Schema({
   label: { type: String, default: null }, // e.g. project title for project_click
 }, { timestamps: true });
 
+// Every dashboard query filters on type and a createdAt window.
+analyticsEventSchema.index({ type: 1, createdAt: -1 });
+
 module.exports = mongoose.model('AnalyticsEvent', analyticsEventSchema);

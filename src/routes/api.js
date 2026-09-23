@@ -16,6 +16,14 @@ const contactLimiter = rateLimit({
   message: { success: false, message: 'Too many messages sent. Please try again later.' },
 });
 
+// Unauthenticated and write-backed, so it is the easiest endpoint to use for
+// filling the database. A real visitor fires a handful of these per session.
+const analyticsLimiter = rateLimit({
+  windowMs: 60 * 1000,
+  max: 30,
+  message: { success: false, message: 'Too many events.' },
+});
+
 // ── Public content API ───────────────────────────────────────────────────────
 router.get('/projects', async (_req, res, next) => {
   try {
@@ -83,7 +91,7 @@ router.post('/contact', contactLimiter, async (req, res, next) => {
 });
 
 // ── Analytics ────────────────────────────────────────────────────────────────
-router.post('/analytics/track', async (req, res) => {
+router.post('/analytics/track', analyticsLimiter, async (req, res) => {
   const { type, label } = req.body;
   if (!['project_click', 'resume_download'].includes(type)) {
     return res.status(400).json({ success: false, message: 'Unsupported event type.' });
