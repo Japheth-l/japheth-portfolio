@@ -5,7 +5,7 @@ const defaultContent = {
   heroRole: 'Backend Developer',
   heroLede: 'I build REST APIs with Node.js, Express, and MongoDB. I am based in Accra, Ghana, and open to remote work.',
   aboutParagraphs: [
-    "I am a backend developer in Accra, Ghana. I am taking the Backend Development Track at BeTechified Tech Academy while studying Electrical and Electronics Engineering at the University of Energy and Natural Resources.",
+    "I am a backend developer in Accra, Ghana. I finished the Backend Development Track at BeTechified Tech Academy in August 2026, and I am in my second year of Electrical and Electronics Engineering at the University of Energy and Natural Resources.",
     "I started out writing CRUD APIs that kept everything in memory and testing them by hand in Postman. Since then I have shipped services with real validation, indexing, and authentication on them. What I like about backend work is that it is quiet when it is right. You only hear about it when something breaks.",
     "I am looking for junior backend roles and freelance work, remote friendly. If you work in Node.js and MongoDB, we will get on fine.",
   ],
