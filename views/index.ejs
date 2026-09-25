@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title><%= content.heroName %> — <%= content.heroRole %></title>
+  <title><%= content.heroName %> | <%= content.heroRole %></title>
   <%- include('partials/head') %>
 </head>
 <body>
@@ -61,7 +61,7 @@
       <div class="terminal-section__copy">
         <p class="eyebrow">How I think</p>
         <h2>The backend perspective</h2>
-        <p>Every request tells a story. I think in endpoints, payloads, and status codes — so this portfolio is literally an API. That <code>/api/me</code> call is real: the page you're reading is rendered by the same Express server, from the same MongoDB.</p>
+        <p>I think in endpoints, payloads, and status codes, so I built this portfolio as an API. That <code>/api/me</code> call is real. The page you are reading is rendered by the same Express server, from the same MongoDB.</p>
         <div class="terminal-section__links">
           <a href="/api/me" target="_blank" rel="noopener">Try /api/me ↗</a>
           <a href="/api/projects" target="_blank" rel="noopener">Try /api/projects ↗</a>
@@ -75,7 +75,7 @@
     <div class="section__head">
       <p class="eyebrow">Projects</p>
       <h2>Routes I've shipped</h2>
-      <p class="section__sub">Served live from MongoDB — <%= projects.length %> record<%= projects.length === 1 ? '' : 's' %> returned.</p>
+      <p class="section__sub">Served live from MongoDB. <%= projects.length %> record<%= projects.length === 1 ? '' : 's' %> returned.</p>
     </div>
 
     <div class="endpoint-list">
@@ -86,7 +86,7 @@
             <span class="route">/projects</span>
             <span class="status">204 No Content</span>
           </div>
-          <p>No projects published yet — they're on the way. In the meantime, the fastest way to see my work is <a href="https://github.com/Japheth-l" target="_blank" rel="noopener">GitHub</a>.</p>
+          <p>No projects published here yet. The fastest way to see my work is <a href="https://github.com/Japheth-l" target="_blank" rel="noopener">GitHub</a>.</p>
         </article>
       <% } %>
       <% projects.forEach(project => { %>
@@ -147,7 +147,7 @@
     <div class="contact__inner">
       <p class="eyebrow">Contact</p>
       <h2>Let's build something that stays up.</h2>
-      <p class="section__sub">Open to junior backend roles and freelance projects. This form POSTs to <code>/api/contact</code> on this very server — validated, rate-limited, stored, and emailed to me.</p>
+      <p class="section__sub">Open to junior backend roles and freelance projects. This form POSTs to <code>/api/contact</code> on this server, where it is validated, rate-limited, stored, and emailed to me.</p>
 
       <form class="contact__form" id="contactForm" novalidate>
         <div class="contact__field">
