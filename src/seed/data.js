@@ -29,7 +29,7 @@ const defaultProjects = [
     description: 'The site you are reading. A server-rendered Express app with EJS templates, a MongoDB-backed content API, a JWT-protected admin panel for editing projects and copy, a rate-limited contact endpoint, and my own analytics instead of third-party trackers.',
     tags: ['Node.js', 'Express', 'EJS', 'MongoDB', 'JWT', 'Resend'],
     liveUrl: '',
-    sourceUrl: 'https://github.com/Japheth-l',
+    sourceUrl: 'https://github.com/Japheth-l/japheth-portfolio',
     order: 0,
   },
   {
@@ -69,7 +69,7 @@ const defaultProjects = [
     title: 'Todo API',
     description: 'Started as an in-memory CRUD exercise, then moved to MongoDB Atlas so the data survived a restart. That gap is the thing it taught me.',
     tags: ['Node.js', 'Express', 'MongoDB Atlas'],
-    sourceUrl: 'https://github.com/Japheth-l',
+    sourceUrl: 'https://github.com/Japheth-l/week-7-todo-api',
     order: 4,
   },
 ];
