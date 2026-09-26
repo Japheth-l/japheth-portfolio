@@ -164,3 +164,17 @@ if (form) {
     }
   });
 }
+
+// ── Copy email button: works for every recruiter, whatever email app they use ──
+document.querySelectorAll('[data-copy-email]').forEach(btn => {
+  btn.addEventListener('click', async () => {
+    const email = btn.dataset.copyEmail;
+    try {
+      await navigator.clipboard.writeText(email);
+      btn.textContent = 'Copied ✓';
+    } catch {
+      btn.textContent = email; // clipboard blocked: show the address so they can copy it by hand
+    }
+    setTimeout(() => { btn.textContent = 'Copy email'; }, 2500);
+  });
+});
