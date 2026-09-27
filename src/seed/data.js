@@ -33,17 +33,6 @@ const defaultProjects = [
     order: 0,
   },
   {
-    method: 'GET',
-    route: '/projects/notes-api',
-    status: '200 OK',
-    title: 'Notes API',
-    description: 'A REST API for notes with Joi-validated input, page-and-limit pagination that runs the count query in parallel, and a weighted full-text index across title and content. Deployed on Render.',
-    tags: ['Node.js', 'Express', 'MongoDB', 'Mongoose', 'Joi'],
-    liveUrl: 'https://notes-api-k7fb.onrender.com',
-    sourceUrl: 'https://github.com/Japheth-l/notes-api',
-    order: 1,
-  },
-  {
     method: 'POST',
     route: '/projects/blog-api/auth',
     status: '201 Created',
@@ -51,7 +40,7 @@ const defaultProjects = [
     description: 'A blogging backend with token-based authentication. Signup, login, and protected routes behind JWT middleware, so only the right people can publish or edit a post.',
     tags: ['Node.js', 'Express', 'JWT', 'bcrypt', 'MongoDB'],
     sourceUrl: 'https://github.com/Japheth-l/blog-api-auth',
-    order: 2,
+    order: 1,
   },
   {
     method: 'PUT',
@@ -60,7 +49,7 @@ const defaultProjects = [
     title: 'E-commerce Product Management API',
     description: 'Team project at BeTechified. I owned the products module: full CRUD, Mongoose schema design, Joi validation, regex-based search, and pagination on the product listing endpoints.',
     tags: ['Node.js', 'Express', 'MongoDB', 'Joi', 'Team project'],
-    order: 3,
+    order: 2,
   },
   {
     method: 'GET',
@@ -70,7 +59,7 @@ const defaultProjects = [
     description: 'Started as an in-memory CRUD exercise, then moved to MongoDB Atlas so the data survived a restart. That gap is the thing it taught me.',
     tags: ['Node.js', 'Express', 'MongoDB Atlas'],
     sourceUrl: 'https://github.com/Japheth-l/week-7-todo-api',
-    order: 4,
+    order: 3,
   },
 ];
 
